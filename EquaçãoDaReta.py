@@ -3,8 +3,6 @@ a = float(input("X1:  "))
 b = float(input("Y1:  "))
 c = float(input("X2:  "))
 d = float(input("Y2:  "))
-x = ("x") #X e Y estão declaradas com variaveis apenas para facilitar na hora de
-y = ("y") #chamar nos cálculos/concatenações 
 
 # Fórmula da equação da reta
 # a * d + b * x + c * y + (d * x + a * y + c * b) * -1
