@@ -22,7 +22,7 @@ calculo1 = parte1 + parte6 # N
 calculo2 = parte2 + parte4 # X
 calculo3 = parte3 + parte5 # Y
 
-calculoFinal = str(calculo2) + "x + " + str(calculo3) + "y + " + str(calculo2)
+calculoFinal = str(calculo2) + "x + " + str(calculo3) + "y + " + str(calculo1)
 print(calculoFinal) 
 
 #=================================================================================================================
