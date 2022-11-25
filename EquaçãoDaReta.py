@@ -23,7 +23,7 @@ calculo2 = parte2 + parte4 # X
 calculo3 = parte3 + parte5 # Y
 
 calculoFinal = str(calculo2) + "x + " + str(calculo3) + "y + " + str(calculo1)
-print(calculoFinal) 
+print("A equação da reta é:" + calculoFinal) 
 
 #=================================================================================================================
 
