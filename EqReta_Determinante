@@ -4,6 +4,20 @@ print("2 - Determinante / Área do Triângulo")
 print("")
 operacao = int(input(""))
 
+while operacao != 1 or operacao != 2:
+    print("Não é um valor válido!")
+    print("Opte apenas pelos valores apresentados")
+    print("")
+    print("Insira o numero da operação que deeja fazer:")
+    print("1 - Equação da Reta")
+    print("2 - Determinante / Área do Triângulo")
+    print("")
+    operacao = int(input(""))
+    if operacao == 1 or operacao == 2:
+        break
+
+
+
 if operacao == 1:
     print ("Insira abaixo os valores de:")
     a = float(input("X1:  "))
