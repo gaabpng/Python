@@ -1,0 +1,107 @@
+print("Insira o numero da operação que deeja fazer:")
+print("1 - Equação da Reta")
+print("2 - Determinante / Área do Triângulo")
+print("")
+operacao = int(input(""))
+
+if operacao == 1:
+    print ("Insira abaixo os valores de:")
+    a = float(input("X1:  "))
+    b = float(input("Y1:  "))
+    c = float(input("X2:  "))
+    d = float(input("Y2:  "))
+
+    # Fórmula da equação da reta
+    # a * d + b * x + c * y + (d * x + a * y + c * b) * -1
+
+    parte1 = a * d
+    parte2 = b # + x
+    parte3 = c # + y
+    parte4 = d * -1 # + x
+    parte5 = a * -1 # + y 
+    parte6 = c * b * -1
+
+    calculo1 = 0
+    calculo2 = 0
+    calculo3 = 0
+
+    calculo1 = parte1 + parte6 # N
+    calculo2 = parte2 + parte4 # X
+    calculo3 = parte3 + parte5 # Y
+
+    calculoFinal = str(calculo2) + "x + " + str(calculo3) + "y + " + str(calculo1)
+    print("A equação da reta é:" + calculoFinal) 
+
+if operacao == 2:
+
+    # Cálculo do determinante
+    # X1 * Y2 * 1 + Y1 * 1 * X3 + 1 * X2 * Y3 + (X3 * Y2 * 1 + Y3 * 1 * X1 + 1 * X2 * Y1) * 1
+
+    X1 = 0
+    Y1 = 0
+    X2 = 0 
+    Y2 = 0
+    X3 = 0
+    Y3 = 0
+
+    print ("Insira abaixo os valores de:")
+    X1 = float(input("X1:  "))
+    Y1 = float(input("Y1:  "))
+    X2 = float(input("X2:  "))
+    Y2 = float(input("Y2:  "))
+    X3 = float(input("X3:  "))
+    Y3 = float(input("Y3:  "))
+
+    det = X1 * Y2 * 1 + Y1 * 1 * X3 + 1 * X2 * Y3 + (X3 * Y2 * 1 + Y3 * 1 * X1 + 1 * X2 * Y1) * 1
+    area = det / 2
+    if det == 0:
+        colinear = "verdadeiro"
+    else: 
+        colinear = "falso"
+    
+    if det < 0:
+        det = det * - 1
+    print("")
+    print("O determinante é igual a " + str(det))
+    print ("")
+    print("Deseja saber se a condição de colinearidade é verdadeira? (s/n)")
+    respCol = (input(""))
+
+    if respCol == "s":
+        print ("A condição de coolinearidade é: " + colinear)
+        print ("Encerrando programa")
+    else:
+        print ("Encerrando programa")
+
+#=================================================================================================================
+
+#trechos de código que nao deram certo
+
+#calculo1 = 0
+#calculo2 = parte3 + parte4 
+#calculo3 = parte5 + str(parte6) 
+#calculo4 = 0
+#calculo5 = 0
+#calculo6 = 0
+
+#print("cálculo 1: " + str(parte1) + " + " + parte2)
+#print("calculo 2: " + parte3 + " + " + parte4)
+#print("calculo 3: " + parte5 + "+" + str(parte6))
+
+#print (calculo1)
+#print (calculo2)
+#print (calculo3)
+
+#parte2.replace ("x", "" )
+#calculo1 = float(parte1) + float(parte2)
+
+#if calculo1.count(x) & calculo2.count(x):
+#    calculo1.replace ("x", "")
+#    calculo1.replace ("x", "")
+#    calculo2.replace ("x", "")
+#    calculo2.replace ("x", "")
+#    calculo4 = float(calculo1) + float(calculo2)
+
+#cálculoFinal = cálculo1 + cálculo2 + cálculo3
+
+#print (cálculoFinal)
