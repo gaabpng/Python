@@ -31,6 +31,6 @@ print(type(mt))
 # mudando o tipo da mt
 mt = mt.astype(np.int32)
 
+# também pode-se criar uma nova matriz de novo tipo a partir de uma matriz antiga
 novamt = mt.astype(np.int32)
 
-print (novamt)
