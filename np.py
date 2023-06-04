@@ -52,4 +52,19 @@ aleatório = np.random.random((5))
 
 # dados aleatórios numa distribuição normal
 aleatório = np.random.randn((5))
-print(aleatório)
+
+# valores aleatórios inteiros de tamanho 3x4 com mínimo e máximo definidos
+aleatório = np.random.randint(low=1, high=100, size=(3,4))
+
+#matriz de exemplo para remoção de repetições
+matriz = np.array([11, 12, 13, 14, 15, 16, 11, 16, 17, 18, 20, 11]) 
+
+# remoção de repetições
+matriz = np.unique(matriz)
+
+#cria matriz bidimensional
+matriz = np.array ([
+    [17, 22, 43],
+    [27, 25, 14],
+    [15, 24, 32]
+])
