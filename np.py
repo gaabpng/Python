@@ -68,3 +68,5 @@ matriz = np.array ([
     [27, 25, 14],
     [15, 24, 32]
 ])
+
+print (matriz)
