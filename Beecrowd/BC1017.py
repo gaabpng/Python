@@ -4,7 +4,6 @@ tempo = float(input())
 vel = float(input())
 
 dist = vel * tempo
-
 total = dist / rend
 
-print(total)
+print("{:.3f}".format(total))
