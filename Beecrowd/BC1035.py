@@ -5,7 +5,7 @@ req3 = False # C + D maior que A + B
 req4 = False # C e D maior que 0
 req5 = False # A é par
 
-# Function
+# Função
 def regras(entrada):
     valores = entrada.split() 
     A = int(valores[0])
@@ -38,6 +38,6 @@ def regras(entrada):
     else:
         print("Valores não aceitos")
 
-# Main Code
+# Código Principal
 entrada = input()
 regras(entrada)
