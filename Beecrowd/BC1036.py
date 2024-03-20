@@ -19,8 +19,15 @@ def bhaskara(entrada):
         eq1 = eq1 / 100
         eq2 = eq2 / 100
 
-        print ("R1 = {:.5f}".format(eq1))
-        print ("R2 = {:.5f}".format(eq2))
+        
+        # METODO 1
+        # print ("R1 = {:.5f}".format(eq1))
+        # print ("R2 = {:.5f}".format(eq2))
+
+        # METODO 2
+        print ("R1 =", eq1)
+        print ("R2 =", eq2)
+
     else:
         print ("Impossivel calcular")
 
