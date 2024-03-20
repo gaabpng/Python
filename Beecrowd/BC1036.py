@@ -1,3 +1,5 @@
+#AINDA NÃO RESOLVIDO
+
 import math
 
 # Função

@@ -14,6 +14,6 @@ def intervalo(entrada):
     elif intervalo4[0] <= entrada <= intervalo4[1]:
         print ("Intervalo (75,100]")
     else:
-        print ("Fora do intervalo")
+        print ("Fora de intervalo")
 entrada=input()
 intervalo(entrada)
