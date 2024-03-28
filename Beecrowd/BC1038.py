@@ -6,7 +6,6 @@ print("Total: R$ {:.2f}".format(total))
 
 
 
-# PROGRAMA QUE EU FIZ PQ NÃO LI O CARALHO DO ENUNCIADO
 #
 # def comanda(pedido, precos, conta, total):
 #     for i in pedido:
