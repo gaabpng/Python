@@ -5,8 +5,6 @@ total = precos[pedido[0]-1] * pedido[1]
 print("Total: R$ {:.2f}".format(total))
 
 
-
-#
 # def comanda(pedido, precos, conta, total):
 #     for i in pedido:
 #         conta.append(precos[i-1])
