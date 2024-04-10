@@ -1,9 +1,5 @@
-valor = int(input())
-
-fatorial = 1
-
-while valor > 1:
-    fatorial *= valor
-    valor -= 1
-    
-print(fatorial)
+n = int(input())   
+fat = 1
+for n in range(n, 1, -1):
+    fat *= n
+print(fat)
