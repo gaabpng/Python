@@ -1,6 +1,2 @@
-peso = float(input("Seu peso em kg: "))
-altura = float(input("Sua altura em metros: "))
-
-imc = peso / (altura ** 2)
-
-print("Seu IMC é :", imc)
+calculo = (0.5 + ((5 ** 0.5)/10)) *(1 + 5 ** 0.5) ** 100 + (0.5 - ((5 ** 0.5)/10)) * (1 - 5 ** 0.5) ** 100
+print(format(calculo, '.0f'))
