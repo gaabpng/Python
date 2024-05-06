@@ -1,25 +1,28 @@
-linhas = 3
-colunas = 3
-matriz = []
+nome = input("digite seu nome")
+altura = float(input("digite sua altura"))
+peso = float(input("digite seu peso"))
+imc = peso/(altura   * altura)
 
-for i in range(linhas):
-    linha = []
-    for j in range(colunas):
-        valor = float(input())
-        linha.append(valor)
-    matriz.append(linha)
+if imc < 18.5:
     
-linha1 = matriz[0][0:3]
-linha1 = sum(linha1)
-print(linha1)
-
-linha2 = matriz[1][0:3]
-linha2 = sum(linha2)
-print(linha2)
-
-linha3 = matriz[2][0:3]
-linha3 = sum(linha3)
-print(linha3)
-
-resultado = linha1+linha2+linha3
-print(resultado)
+    print("ola" , nome , " voce esta abaixo do peso")
+    print("seu imc é de" , imc )
+    
+elif imc == 18.6  <= 24.9:
+    print("ola" , nome , " Parabens vc esta no peso ideal")
+    print("seu imc é de" , imc )
+    
+elif imc == 25.0 <= 29.9:
+    print("ola" , nome , " voce esta levemente acima do peso")
+    print("seu imc é de" , imc )
+    
+elif imc == 30.0 <= 34.9:
+    print("ola" , nome , " voce com obesidade de grau 1")
+    print("seu imc é de" , imc )   
+    
+elif imc == 35.0 <= 39.9:
+    print("ola" , nome , " voce com obesidade de grau 2 (severa)")
+    print("seu imc é de" , imc )
+else: 
+    print("ola" , nome , " voce com obesidade de grau 3(morbido")
+    print("seu imc é de" , imc )
