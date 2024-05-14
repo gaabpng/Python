@@ -1,36 +1,25 @@
-telefone = 0
-presente = 0
-moraPerto = 0
-devia = 0
-trabalhou = 0
+entrada = 0
+lista = []
+menorvalor = 0
+maiorvalor = 0
+media = 0
 
-telefone = input("telefonou?")
-if telefone == "Sim":
-    telefone = 1
+while entrada != "FIM":
+    entrada = input()
+    lista.append(entrada)
     
-presente = input("deu presente?")
-if presente == "Sim":
-    presente = 1
+for i in range(len(lista)-1):
+    if lista[i] < lista[i+1]:
+        menorvalor = lista[i]
+        
+    if lista[i] > lista[i+1]:
+        maiorvalor = lista[i]
+        
+for i in range(len(lista)):
+    media += lista[i]
     
-moraPerto = input("mora perto?")
-if moraPerto == "Sim":
-    moraPerto = 1
+media = media/len(lista)
 
-devia = input("devia?")
-if devia == "Sim":
-    devia = 1
-    
-trabalhou = input("trabalhou?")
-if trabalhou == "Sim":
-    trabalhou = 1
-
-if telefone + presente + moraPerto + devia + trabalhou <= 1:
-    print("Inocente")
-else:
-    if telefone + presente + moraPerto + devia + trabalhou == 2:
-        print("Suspeito")
-    else:
-        if telefone + presente + moraPerto + devia + trabalhou == 3 or telefone + presente + moraPerto + devia + trabalhou == 4:
-            print("Cúmplice")
-        else:
-            print("Assassino")
+print("Menor valor: {}".format(menorvalor))
+print("Maior valor: {}".format(maiorvalor))
+print("Média: {:.2f}".format(media))
