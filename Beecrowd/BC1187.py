@@ -1,5 +1,7 @@
 linhas = 12
 colunas = 12
+linhas = 12
+
 matriz = []
 op = input()
 
