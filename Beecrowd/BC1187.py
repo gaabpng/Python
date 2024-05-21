@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-=======
 linhas = 12
->>>>>>> fa3d1bb7d167ad005021a5e2af378e14c20281f6
 colunas = 12
 linhas = 12
 
 matriz = []
-<<<<<<< HEAD
-
-for i in range(linhas):
-    linha = []
-    for j in range(colunas):
-        linha.append(float(input()))
-    matriz.append(linha)
-
-=======
 op = input()
 
 for i in range(colunas):
@@ -36,4 +24,3 @@ if op == "S":
 else:
     resultado = resultado/30
     print("{:.1f}".format(resultado))
->>>>>>> fa3d1bb7d167ad005021a5e2af378e14c20281f6
