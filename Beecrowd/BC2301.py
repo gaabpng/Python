@@ -1,16 +1,21 @@
-c = 0
+import sys
+input = sys.stdin.read
+data = input().strip().split('\n')
 
+c = 0
+i = 0
 while True:
-    P, R = map(int, input().split())
+    P, R = map(int, data[i].split())
     if P == 0 and R == 0:
         break
-    
     c += 1
-    ordem = list(map(int, input().split()))
+    i += 1
+    ordem = list(map(int, data[i].split()))
     vivos = ordem[:]
     
     for _ in range(R):
-        rodada = list(map(int, input().split()))
+        i += 1
+        rodada = list(map(int, data[i].split()))
         N = rodada[0]
         J = rodada[1]
         acoes = rodada[2:]
@@ -25,3 +30,5 @@ while True:
     print(f'Teste {c}')
     print(vivos[0])
     print()
+
+    i += 1
