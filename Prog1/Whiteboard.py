@@ -1,25 +1,16 @@
-entrada = 0
-lista = []
-menorvalor = 0
-maiorvalor = 0
-media = 0
+Base = "AATCTGCAC"
 
-while entrada != "FIM":
-    entrada = input()
-    lista.append(entrada)
-    
-for i in range(len(lista)-1):
-    if lista[i] < lista[i+1]:
-        menorvalor = lista[i]
-        
-    if lista[i] > lista[i+1]:
-        maiorvalor = lista[i]
-        
-for i in range(len(lista)):
-    media += lista[i]
-    
-media = media/len(lista)
+matriz = [["A", "T"],
+          ["C", "G"],
+          ["G", "C"],
+          ["T", "A"]]
 
-print("Menor valor: {}".format(menorvalor))
-print("Maior valor: {}".format(maiorvalor))
-print("Média: {:.2f}".format(media))
+Cadeia = list(Base)
+for i in range(len(Cadeia)):
+    for j in range(len(matriz)):
+        if Cadeia[i] == matriz[j][0]:
+            Cadeia[i] = matriz[j][1]
+            break
+        
+print()
+print("".join(Cadeia))
