@@ -1,0 +1,2 @@
+https://github.com/andrewaires/Exercicios-Beecrowd-Python.git
+https://github.com/gabzintav/beecrowd.git
