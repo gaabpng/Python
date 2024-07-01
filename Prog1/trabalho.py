@@ -1,5 +1,3 @@
-# SEMPRE QUE ADICIONAR /PROG1 A UM ARQUIVO É SÓ POR CAUSA DA ORGANIZAÇÃO DE ARQUIVOS DO MEU PC
-
 def calcular_media(p1, p2, trabalho):
     return (4 * float(p1) + 4 * float(p2) + 2 * float(trabalho)) / 10
 
@@ -18,7 +16,7 @@ def op1():
 
         continuar = input("Deseja continuar? (S/N): ").strip().upper()
         if continuar == "S":
-            op5()
+            op1()
         else:
             arquivo.close()
             print("Dados gravados com sucesso.")
@@ -33,17 +31,15 @@ def op2():
         for linha in arquivo:
             dados = linha.strip().split('\t')
             nome, matricula, p1, p2, trabalho = dados
-            media = calcular_media(p1, p2, trabalho)
-            alunos.append((nome, matricula, p1, p2, trabalho, media))
-        print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
+            alunos.append((nome, matricula, p1, p2, trabalho))
+        print("{:<15}{:<13}{:<5}{:<5}{:<10}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho'))
         for aluno in alunos:
-            nome, matricula, p1, p2, trabalho, media = aluno
-            print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
+            nome, matricula, p1, p2, trabalho = aluno
+            print("{:<15}{:<13}{:<5}{:<5}{:<10}".format(nome, matricula, p1, p2, trabalho))
 
 def op3():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo 
-
 
     with open(nome_arquivo, 'r') as arquivo:
         alunos = []
@@ -53,90 +49,132 @@ def op3():
             media = calcular_media(p1, p2, trabalho)
             alunos.append((nome, matricula, p1, p2, trabalho, media))
 
-
         alunos.sort(key=lambda aluno: aluno[0])
-
 
         print(f"{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
         for aluno in alunos:
             nome, matricula, p1, p2, trabalho, media = aluno
-            print(f"{nome:<15}{matricula:<10}{p1:<5}{p2:<5}{trabalho:<10}{media:<6.2f}")
+            print(f"{nome:<15}{matricula:<13}{p1:<5}{p2:<5}{trabalho:<10}{media:<6.2f}")
 
 def op4():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
 
-
     with open(nome_arquivo, 'r') as arquivo:
         alunos = []
         for linha in arquivo:
             dados = linha.strip().split('\t')
-            if len(dados) == 5:  # Assegurando que há exatamente 5 colunas
+            if len(dados) == 5:
                 nome, matricula, p1, p2, trabalho = dados
                 media = calcular_media(p1, p2, trabalho)
                 alunos.append((nome, matricula, p1, p2, trabalho, media))
 
         alunos.sort(key=lambda aluno: aluno[5], reverse=True)
 
-        print("{:<15}{:<10}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
+        print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
         for aluno in alunos:
             nome, matricula, p1, p2, trabalho, media = aluno
-            print("{:<15}{:<10}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
+            print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
 
 def op5():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
     nome_aluno = input("Qual o nome do aluno desejado? :")
     with open(nome_arquivo, 'r') as arquivo:
-        alunos = []
         for linha in arquivo:
             dados = linha.strip().split('\t')
             nome, matricula, p1, p2, trabalho = dados
-            media = calcular_media(p1, p2, trabalho)
-            alunos.append((nome, matricula, p1, p2, trabalho, media))
-        print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
-        for aluno in alunos:
             if nome_aluno == nome:
-                nome, matricula, p1, p2, trabalho, media = aluno
+                media = calcular_media(p1, p2, trabalho)
+                print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
                 print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
+                return
+        print("Aluno não encontrado.")
 
 def op6():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
     with open(nome_arquivo, 'r') as arquivo:
         alunos = []
-        i = 0
         for linha in arquivo:
             dados = linha.strip().split('\t')
             nome, matricula, p1, p2, trabalho = dados
-            media = calcular_media(p1, p2, trabalho)
-            alunos.append((nome, matricula, p1, p2, trabalho, media))
-        print(linha + "{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Ind', 'Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
+            alunos.append((nome, matricula, p1, p2, trabalho))
+    
+    print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}".format('Ind', 'Nome', 'Matrícula', 'P1', 'P2', 'Trabalho'))
+    for i, aluno in enumerate(alunos, 1):
+        nome, matricula, p1, p2, trabalho = aluno
+        print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}".format(i, nome, matricula, p1, p2, trabalho))
+    
+    indice = int(input("Qual aluno deseja editar (insira o índice): ")) - 1
+    if 0 <= indice < len(alunos):
+        nome, matricula, p1, p2, trabalho = alunos[indice]
+        print("Deixe em branco se não quiser alterar um campo.")
+        novo_nome = input(f"Nome ({nome}): ") or nome
+        nova_matricula = input(f"Matrícula ({matricula}): ") or matricula
+        nova_p1 = input(f"Nota da P1 ({p1}): ") or p1
+        nova_p2 = input(f"Nota da P2 ({p2}): ") or p2
+        novo_trabalho = input(f"Nota do trabalho ({trabalho}): ") or trabalho
+        alunos[indice] = (novo_nome, nova_matricula, nova_p1, nova_p2, novo_trabalho)
+    
+    with open(nome_arquivo, 'w') as arquivo:
         for aluno in alunos:
-            i = i+1
-            nome, matricula, p1, p2, trabalho, media = aluno
-            print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(i, nome, matricula, p1, p2, trabalho, media))
-            arquivo.close()
-    edit = input("Qual aluno deseja editar (insira o indice)")
-
-
-    rep = input("Deseja editar mais algum aluno?: (S/N)")
-    if rep == "S":
-        op6()
+            linha = "\t".join(aluno) + "\n"
+            arquivo.write(linha)
+    
+    print("Dados do aluno atualizados com sucesso.")
 
 def op7():
-    print("feat8")
+    nome_arquivo = input("Nome do arquivo: ")
+    nome_arquivo = "Prog1/" + nome_arquivo
+    with open(nome_arquivo, 'r') as arquivo:
+        alunos = []
+        for linha in arquivo:
+            dados = linha.strip().split('\t')
+            alunos.append(dados)
+    
+    nome_aluno = input("Nome do aluno a ser salvo: ")
+    for aluno in alunos:
+        if aluno[0] == nome_aluno:
+            print("Dados do aluno já estão salvos.")
+            return
+    
+    nome = input("Nome do aluno: ")
+    matricula = input("Matrícula do aluno: ")
+    p1 = input("Nota da P1: ")
+    p2 = input("Nota da P2: ")
+    trabalho = input("Nota do trabalho: ")
+
+    linha = f"{nome}\t{matricula}\t{p1}\t{p2}\t{trabalho}\n"
+    with open(nome_arquivo, 'a') as arquivo:
+        arquivo.write(linha)
+    
+    print("Dados do aluno salvos com sucesso.")
 
 def op8():
-    print("feat8")
+    nome_arquivo = input("Nome do arquivo: ")
+    nome_arquivo = "Prog1/" + nome_arquivo
+    nome_aluno = input("Nome do aluno a ser apagado: ")
+    
+    with open(nome_arquivo, 'r') as arquivo:
+        linhas = arquivo.readlines()
+    
+    with open(nome_arquivo, 'w') as arquivo:
+        for linha in linhas:
+            if not linha.startswith(nome_aluno):
+                arquivo.write(linha)
+    
+    print("Registro do aluno apagado com sucesso.")
+
 def main():
     while True:
+        print()
         print("Qual operação deseja realizar?")
         print("1 - Ler informações de um aluno a partir do teclado")
         print("2 - Ler informações dos alunos de um arquivo (especificando o nome do arquivo)")
         print("3 - Listar os alunos, com suas notas (incluindo uma média M=(4xP1+4xP2+2x trabalho)/10, em ordem alfabética)")
         print("4 - Listar os alunos, com suas notas (incluindo uma média M=(4xP1+4xP2+2x trabalho)/10, em ordem decrescente da média)")
-        print("5 - Gravar as informações dos alunos em um arquivo (especificando o nome do arquivo)")
+        print("5 - Verificar se um aluno está no arquivo (e recuperar as informações dele)")
         print("6 - Editar as informações de um aluno.")
         print("7 - Salvar as informações de um aluno.")
         print("8 - Apagar no registro as informações de um aluno.")
