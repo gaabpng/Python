@@ -19,9 +19,10 @@ def print_arquivo(nome_arquivo, bool_media, bool_alf, bool_ord_media, bool_ind, 
         
         if bool_ind == True:
             print(f"{'Ind':<4}{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
-
-        else:
+        elif bool_media == True:
             print(f"{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
+        else:
+            print(f"{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}")
                 
         if bool_alf == True:
             alunos.sort(key=lambda aluno: aluno[0])
@@ -67,17 +68,18 @@ def op1():
 def op2():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
-    print_arquivo(nome_arquivo, False, False, False)
+    print_arquivo(nome_arquivo, False, False, False, False, False)
     
 def op3():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo 
-    print_arquivo(nome_arquivo, True, True, False)
+    print_arquivo(nome_arquivo, True, True, False, False, False)
+    
     
 def op4():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
-    print_arquivo(nome_arquivo, True, False, True)
+    print_arquivo(nome_arquivo, True, False, True, False, False)
     
 def op5():
     nome_arquivo = input("Nome do arquivo: ")
@@ -93,6 +95,7 @@ def op5():
                 print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
                 return
         print("Aluno não encontrado.")
+        arquivo.close()
 
 def op6():
     nome_arquivo = input("Nome do arquivo: ")
@@ -116,7 +119,7 @@ def op6():
             arquivo.write(linha)
     
     print("Dados do aluno atualizados com sucesso.")
-
+    arquivo.close()
 def op7():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
@@ -143,6 +146,7 @@ def op7():
         arquivo.write(linha)
     
     print("Dados do aluno salvos com sucesso.")
+    arquivo.close()
 
 def op8():
     nome_arquivo = input("Nome do arquivo: ")
@@ -158,7 +162,7 @@ def op8():
                 arquivo.write(linha)
     
     print("Registro do aluno apagado com sucesso.")
-
+    arquivo.close()
 def main():
     while True:
         print()
