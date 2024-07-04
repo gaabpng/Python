@@ -1,6 +1,48 @@
 def calcular_media(p1, p2, trabalho):
     return (4 * float(p1) + 4 * float(p2) + 2 * float(trabalho)) / 10
 
+def print_arquivo(nome_arquivo, bool_media, bool_alf, bool_ord_media, bool_ind, bool_only_alunos):
+    with open(nome_arquivo, 'r') as arquivo:
+        alunos = []
+        for linha in arquivo:
+            dados = linha.strip().split('\t')
+            nome, matricula, p1, p2, trabalho = dados
+            
+            if bool_media == True:
+                media = calcular_media(p1, p2, trabalho)
+                alunos.append((nome, matricula, p1, p2, trabalho, media))
+            else:
+                alunos.append((nome, matricula, p1, p2, trabalho))
+                
+        if bool_only_alunos == True:
+            return alunos
+        
+        if bool_ind == True:
+            print(f"{'Ind':<4}{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
+
+        else:
+            print(f"{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
+                
+        if bool_alf == True:
+            alunos.sort(key=lambda aluno: aluno[0])
+                
+        if bool_ord_media == True:
+            alunos.sort(key=lambda aluno:aluno[5], reverse=True)
+
+        if bool_media == True:                
+            for aluno in alunos:
+                nome, matricula, p1, p2, trabalho, media = aluno
+                print(f"{nome:<15}{matricula:<13}{p1:<5}{p2:<5}{trabalho:<10}{media:<6.2f}")
+        elif bool_ind == True:
+            for i, aluno in enumerate(alunos, 1):
+                nome, matricula, p1, p2, trabalho = aluno
+                print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}".format(i, nome, matricula, p1, p2, trabalho))             
+                   
+        else:
+            for aluno in alunos:
+                nome, matricula, p1, p2, trabalho = aluno
+                print(f"{nome:<15}{matricula:<13}{p1:<5}{p2:<5}{trabalho:<10}")
+        return alunos
 def op1():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
@@ -25,57 +67,18 @@ def op1():
 def op2():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
-
-    with open(nome_arquivo, 'r') as arquivo:
-        alunos = []
-        for linha in arquivo:
-            dados = linha.strip().split('\t')
-            nome, matricula, p1, p2, trabalho = dados
-            alunos.append((nome, matricula, p1, p2, trabalho))
-        print("{:<15}{:<13}{:<5}{:<5}{:<10}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho'))
-        for aluno in alunos:
-            nome, matricula, p1, p2, trabalho = aluno
-            print("{:<15}{:<13}{:<5}{:<5}{:<10}".format(nome, matricula, p1, p2, trabalho))
-
+    print_arquivo(nome_arquivo, False, False, False)
+    
 def op3():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo 
-
-    with open(nome_arquivo, 'r') as arquivo:
-        alunos = []
-        for linha in arquivo:
-            dados = linha.strip().split('\t')
-            nome, matricula, p1, p2, trabalho = dados
-            media = calcular_media(p1, p2, trabalho)
-            alunos.append((nome, matricula, p1, p2, trabalho, media))
-
-        alunos.sort(key=lambda aluno: aluno[0])
-
-        print(f"{'Nome':<15}{'Matrícula':<13}{'P1':<5}{'P2':<5}{'Trabalho':<10}{'Média':<6}")
-        for aluno in alunos:
-            nome, matricula, p1, p2, trabalho, media = aluno
-            print(f"{nome:<15}{matricula:<13}{p1:<5}{p2:<5}{trabalho:<10}{media:<6.2f}")
-
+    print_arquivo(nome_arquivo, True, True, False)
+    
 def op4():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
-
-    with open(nome_arquivo, 'r') as arquivo:
-        alunos = []
-        for linha in arquivo:
-            dados = linha.strip().split('\t')
-            if len(dados) == 5:
-                nome, matricula, p1, p2, trabalho = dados
-                media = calcular_media(p1, p2, trabalho)
-                alunos.append((nome, matricula, p1, p2, trabalho, media))
-
-        alunos.sort(key=lambda aluno: aluno[5], reverse=True)
-
-        print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6}".format('Nome', 'Matrícula', 'P1', 'P2', 'Trabalho', 'Média'))
-        for aluno in alunos:
-            nome, matricula, p1, p2, trabalho, media = aluno
-            print("{:<15}{:<13}{:<5}{:<5}{:<10}{:<6.2f}".format(nome, matricula, p1, p2, trabalho, media))
-
+    print_arquivo(nome_arquivo, True, False, True)
+    
 def op5():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
@@ -94,18 +97,8 @@ def op5():
 def op6():
     nome_arquivo = input("Nome do arquivo: ")
     nome_arquivo = "Prog1/" + nome_arquivo
-    with open(nome_arquivo, 'r') as arquivo:
-        alunos = []
-        for linha in arquivo:
-            dados = linha.strip().split('\t')
-            nome, matricula, p1, p2, trabalho = dados
-            alunos.append((nome, matricula, p1, p2, trabalho))
-    
-    print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}".format('Ind', 'Nome', 'Matrícula', 'P1', 'P2', 'Trabalho'))
-    for i, aluno in enumerate(alunos, 1):
-        nome, matricula, p1, p2, trabalho = aluno
-        print("{:<4}{:<15}{:<13}{:<5}{:<5}{:<10}".format(i, nome, matricula, p1, p2, trabalho))
-    
+    print_arquivo(nome_arquivo, False, True, False, True, False)
+    alunos = print_arquivo(nome_arquivo, False, False, False, False, True)
     indice = int(input("Qual aluno deseja editar (insira o índice): ")) - 1
     if 0 <= indice < len(alunos):
         nome, matricula, p1, p2, trabalho = alunos[indice]
